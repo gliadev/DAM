@@ -1,0 +1,57 @@
+<!-- 
+    Se personaliza el componente con la propiedad titulo
+    Para indicar que la propiedad "titulo" coge un valor de la clase se escribe entre []
+    Para representar un texto dentro de comillas dobles ("") se usan las simples ('')
+ -->
+<app-page-header [titulo]="email || 'IMC'"></app-page-header>
+
+<ion-content class="ion-padding">
+
+    <!-- 
+        Definimos el formulario de nombre "formulario".
+        Sera un formulario de tipo template y necesita importar el módulo "FormsModule"
+     -->
+    <form #formulario="ngForm">
+        <ion-list>
+            <ion-list-header>
+                <ion-label>Calcular el Indice de Masa Corporal (IMC)</ion-label>
+
+                <!-- 
+                    El botón estará deshabilitado mientras el formulario sea invalido
+                    Cuando se detecta el evento "click" se ejecuta el método onClick de la clase
+                -->
+                <ion-button [disabled]="formulario.invalid" (click)="onClick()">Calcular IMC</ion-button>
+            </ion-list-header>
+            <ion-item>
+                <ion-label>email</ion-label>
+
+                <!-- 
+                    Usamos [(ngModel)] para enlazar con un atributo de la clase en ambos sentidos
+                    Si el atributo cambia de valor en la clase también lo hará en el HTML y viceversa
+                    Se indica el patrón que debe seguir el email introducido para ser válido
+                -->
+                <ion-input name="email" type="text" placeholder="Introduce tu correo electrónico" [(ngModel)]="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Peso (kg)</ion-label>
+
+                <!-- Se usa la palabra reservada "required" para indicar que el peso es obligatorio  -->
+                <ion-input name="peso" type="number" placeholder="Introduce tu peso en kilos" [(ngModel)]="pesoT" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Altura (m)</ion-label>
+                <ion-input name="altura" type="number" placeholder="Introduce tu altura en metrost" [(ngModel)]="altura" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <!-- 
+                    Usamos {{}} para mostrar un valor de la clase
+                    Si el atributo cambia de valor en la clase también lo hará en el HTML
+                -->
+                <ion-label>IMC: {{imc}}</ion-label>
+
+                <!-- Usamos *ngIf para mostrar un componente en función de una condición -->
+                <ion-badge *ngIf="imc>25" color="danger">Cuida tu peso</ion-badge>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>

@@ -1,0 +1,35 @@
+<!-- Se personaliza el componente con la propiedad titulo -->
+<app-page-header titulo="lista"></app-page-header>
+
+<ion-content>
+
+  <!-- 
+    Utilizamos *ngFor para generar componentes repetidos, los items de una lista
+    Leemos los valores de cada item de un array de objetos JSON definidos en el fichero .ts
+  -->
+  <ion-list *ngFor="let it of valoresLista">
+    <ion-item [routerLink]="it.enlace">
+      <ion-label>{{it.nombre}}</ion-label>
+      <ion-icon slot="start" [name]="it.icono"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <!-- 
+    Utilizamos *ngFor para generar componentes repetidos, los items de una lista
+    Leemos los valores de cada item de un array de objetos
+    Los atributos son privados y los obtenemos con los métodos get
+
+  <ion-list *ngFor="let it of listaObjetos">
+    <ion-item [routerLink]="it.getEnlace()">
+      <ion-label>{{it.getNombre()}}</ion-label>
+      <ion-icon slot="start" [name]="it.getIcono()"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  -->
+
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
+</ion-content>
