@@ -12,11 +12,11 @@ $RECYCLE.BIN/
 *.log
 log.txt
 
-.angular/cache/
+
 /.sourcemaps
 /.versions
 /coverage
-.angular/cache/
+
 # Ionic
 /.ionic
 /www
