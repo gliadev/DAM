@@ -11,4 +11,14 @@
       <ion-title size="large">tab4</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-item>
+    <ion-label position="floating">Adivina un número del 0 al 100</ion-label>
+    <ion-input type="number" [(ngModel)]="numeroIntroducido"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="comprobarNumero()">Comprobar</ion-button>
+
+  <ion-text color="primary">
+    <p>{{ mensaje }}</p>
+  </ion-text>
 </ion-content>
