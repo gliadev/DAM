@@ -10,7 +10,7 @@ export interface IPersona {
   providedIn: 'root',
 })
 export class GestionPersonasService {
-  personas: IPersona[] = [
+  private personas: IPersona[] = [
     {
       id: 'aa',
       nombre: 'Aitor',
@@ -28,5 +28,11 @@ export class GestionPersonasService {
     },
   ];
 
-  constructor() {}
+  constructor() {
+
+    getPersonas() {
+      return this.personas
+    }
+
+  }
 }

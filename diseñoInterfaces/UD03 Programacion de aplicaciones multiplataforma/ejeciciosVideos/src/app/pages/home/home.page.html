@@ -5,13 +5,15 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- 
+  <!--
     Utilizamos *ngFor para generar componentes repetidos, los items de una lista
     Leemos los valores de cada item de un array de objetos JSON definidos en el fichero .ts
   -->
-  <ion-list *ngFor="let persona of personas">
+  <ion-list *ngFor="let persona of gestionPersonas.personas">
     <ion-item>
-      <ion-label>{{persona.id}} : {{persona.nombre}} {{persona.apellido}}</ion-label>
+      <ion-label
+        >{{persona.id}} : {{persona.nombre}} {{persona.apellido}}</ion-label
+      >
     </ion-item>
   </ion-list>
   <ion-button expand="block" routerLink="/insertar">Insertar</ion-button>
