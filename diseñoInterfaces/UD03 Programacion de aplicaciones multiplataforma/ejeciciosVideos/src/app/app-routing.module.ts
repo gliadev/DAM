@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'insertar',
     loadChildren: () => import('./pages/insertar/insertar.module').then( m => m.InsertarPageModule)
   },
+  {
+    path: 'consultas-rest',
+    loadChildren: () => import('./pages/consultas-rest/consultas-rest.module').then( m => m.ConsultasRestPageModule)
+  },
 ];
 
 @NgModule({
