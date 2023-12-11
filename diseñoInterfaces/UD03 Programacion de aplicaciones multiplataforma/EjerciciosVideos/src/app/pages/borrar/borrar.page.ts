@@ -1,5 +1,5 @@
-import { GestionPersonasService } from './../../servicios/gestion-personas.service';
 import { Component, OnInit } from '@angular/core';
+import { GestionPersonasService } from 'src/app/servicios/gestion-personas.service';
 
 @Component({
   selector: 'app-borrar',
@@ -16,7 +16,6 @@ export class BorrarPage implements OnInit {
 
   onClick() {
     // Borrar
-    this.personas.borrarPersona(this.indice);
-
+    this.personas.borrarPersona(this.indice)
   }
 }
