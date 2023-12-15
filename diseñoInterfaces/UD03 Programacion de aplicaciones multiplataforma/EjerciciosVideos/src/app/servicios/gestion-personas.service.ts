@@ -50,6 +50,8 @@ export class GestionPersonasService {
     this.personas.push(nuevaPersona);
     console.log(this.personas)
 
+    this.personas = [...this.personas, nuevaPersona]
+
   }
   // Borra la persona con el id dado
   borrarPersona(id: string) {
