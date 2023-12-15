@@ -1,6 +1,7 @@
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { GestionPersonasService, IPersona } from 'src/app/servicios/gestion-personas.service';
+import { InsertarPage } from '../insertar/insertar.page';
 
 
 
@@ -13,7 +14,7 @@ import { GestionPersonasService, IPersona } from 'src/app/servicios/gestion-pers
 export class HomePage {
 
 // los contructrores tienen que usar ese servicio
-  constructor( public gestionPersonas: GestionPersonasService, private alerta: AlertController) {}
+  constructor( public gestionPersonas: GestionPersonasService, private alerta: AlertController, private modal: ModalController) {}
 
   borrar(id: string){
     this.gestionPersonas.borrarPersona(id);
@@ -34,12 +35,12 @@ export class HomePage {
           placeholder: 'Introduce el id', value: persona.id
         },
         {
-          name: 'nombre',
+          name: 'Nombre',
           type: 'text',
           placeholder: 'Introduce el nombre', value: persona.nombre
         },
         {
-          name: 'apellido',
+          name: 'Apellido',
           type: 'text',
           placeholder: 'Introduce el apellido', value: persona.apellido
         },
@@ -54,8 +55,9 @@ export class HomePage {
           }
         }, {
           text: 'Okay',
-          handler: () => {
-            console.log('Confirm Okay');
+          handler: (data) => {
+            console.log(data);
+            this.gestionPersonas.modificarPersona(data.ID, data.Nombre, data.Apellido);
           }
         }
       ]
@@ -63,6 +65,16 @@ export class HomePage {
 
     await alert.present();
   }
+
+  async presentarModal() {
+    const modal = await this.modal.create({
+      backdropDismiss: false,
+      component: InsertarPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+
 
 
 }

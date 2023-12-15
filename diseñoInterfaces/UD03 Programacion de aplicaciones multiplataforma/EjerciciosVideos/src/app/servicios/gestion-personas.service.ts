@@ -79,9 +79,22 @@ export class GestionPersonasService {
     // this.personas = [...inicio, ...final];                   // Añade todos los elementos copiados
 
     console.log(this.personas);
+      }
     }
   }
+
+  modificarPersona(id: string, nombre: string, apellido: string){
+    // buscamos la persona con el id dado. utilizamos una funcion anonima como parametro
+    let personaEncontrada: IPersona = this.personas.find(function(cadaPersona) {return cadaPersona.id == id })
+
+    // buscamos el indice para modificar ese elemento
+    let indice: number = this.personas.indexOf(personaEncontrada)
+
+    // cuando ya tenemso el indice lo modificamos
+    this.personas[indice].nombre = nombre;
+    this.personas[indice].apellido = apellido
   }
+
 }
 
 

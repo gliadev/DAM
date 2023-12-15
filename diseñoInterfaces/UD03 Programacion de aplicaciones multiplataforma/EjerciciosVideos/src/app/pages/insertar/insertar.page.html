@@ -1,22 +1,29 @@
-<app-page-header titulo="Insertar"></app-page-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="" mode="ios" (click)="modal.dismiss()">Atrás</ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-uppercase">Insertar</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <form #insertForm="ngForm">
     <ion-item>
       <ion-label>ID</ion-label>
       <ion-input name="id" placeholder="ID" [(ngModel)]="id" required></ion-input>
     </ion-item>
-     
+
     <ion-item>
       <ion-label>Nombre</ion-label>
       <ion-input name="nombre" placeholder="nombre" [(ngModel)]="nombre" required></ion-input>
     </ion-item>
-    
+
     <ion-item>
       <ion-label>Apellido</ion-label>
       <ion-input name="apellido" placeholder="apellido" [(ngModel)]="apellido" required></ion-input>
     </ion-item>
-  
+
     <ion-button [disabled]="insertForm.invalid" (click)="onClick()">INSERTAR</ion-button>
   </form>
 </ion-content>
